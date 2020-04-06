@@ -1,251 +1,435 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
 
-<head>
+  <head>
+    <script language="JavaScript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.2.1/math.js"></script>
+
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <style>* { padding: 0; margin: 0; } canvas { border: 2px solid orange;background: #FFFAF0; display: block; margin: 0 auto; }</style>
+
+     <style>
+       .btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+ #main {
+    margin: auto;
+
+    width: 100%;
+}
+
+#right-side    {
+    width: 600;
+    min-height: 400px;
+    background: gray;
+    float: left;
+    margin-left: 20px;
+}
+
+#page-wrap  {
+    width: 600px;
+    min-height: 600px;
+    float: left;
+    margin-left: 0;
+}
+#right-side2    {
+    width: 520;
+    min-height: 400px;
+    background: gray;
+    float: left;
+    margin-left: 20px;
+}
+
+#page-wrap2  {
+    width: 600px;
+    min-height: 600px;
+    float: left;
+    margin-left: 0;
+}
+
+.clear:after {
+    clear: both;
+    display: table;
+    content: "";
+}
+    </style>
+    
+
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+  google.charts.load('current', {packages: ['corechart']});
+</script>
+    <meta charset="utf-8" />
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ashkan Bashiri</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-	<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<body>
-	<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-        <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="horizontal" data-theme="dark" data-vanity="masoud-bashiri-90194240"><a class="LI-simple-link" href='https://www.linkedin.com/in/masoud-bashiri-90194240?trk=profile-badge'>Masoud "Ashkan" Bashiri</a></div>
-    <div id="mobile-menu-open" class="shadow-large">
-        <i class="fa fa-bars" aria-hidden="true"></i>
-    </div>
-    <!-- End #mobile-menu-toggle -->
-    <header>
-        <div id="mobile-menu-close">
-            <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
-        </div>
-        <ul id="menu" class="shadow">
-            <li>
-                <a href="#about">About</a>
-            </li>
-            <li>
-                <a href="#experience">Experience</a>
-            </li>
-            <li>
-                <a href="#education">Education</a>
-            </li>
-            <li>
-                <a href="#projects">Projects</a>
-            </li>
-            <li>
-                <a href="#skills">Skills</a>
-            </li>
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
+    <title>Masoud Bashiri</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendor/devicons/css/devicons.min.css" rel="stylesheet">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/resume.min.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none">Start Bootstrap</span>
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#experience"><i class="fa fa-briefcase"></i> Experience</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#education"><i class="fa fa-graduation-cap"></i> Education</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#skills"><i class="fa fa-cog"></i> Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#publication"><i class="fa fa-book"></i> Publications</a>
+          </li>
+          <li class="nav-item">
+                    <a class="nav-link collapsed text-truncate" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-code"></i> <span class="d-none d-sm-inline" style="font-weight:bold;">JS+Robotics Demo</span></a>
+                    <div class="collapse" id="submenu1" aria-expanded="false">
+                        <ul class="flex-column pl-2 nav">
+                            <li class="nav-item"><a class="nav-link py-0" href="#portfolio"><span>Go to Goal</span></a></li>
+                            <li class="nav-item"><a class="nav-link py-0" href="#portfolio2"><span>Obstacle Avoidance</span></a></li>
+                            <li class="nav-item"><a class="nav-link py-0" href="#portfolio3"><span>Kalman Filter</span></a></li>
+                        </ul>
+                    </div>
+         </li>
+         <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#portfolio"><i class="fa fa-code"></i>Other Demos</a>
+        </li>
         </ul>
-    </header>
-    <!-- End header -->
+      </div>
+    </nav>
 
-    <div id="lead">
-        <video autoplay muted loop id="myVideo" style="opacity: 0.1">
-            <source src="videos/paim.mp4" type="video/mp4">
-        </video>
-        <div id="lead-content">
+    <div class="container-fluid p-0">
 
-            <h1 style="color:#45B39D">Ashkan Bashiri</h1>
-            <h2 style="color:#45B39D">Software Engineer / Researcher</h2>
-            <a  class="btn-rounded-white" href="./pdf/mb_resume_2019.pdf">Download Resume</a>
+      <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+        <div class="my-auto">
+          <h1 class="mb-0">Masoud
+            <span class="text-primary">Bashiri</span>
+          </h1>
+          <div class="subheading mb-5">Charlottesville, Virginia. (434) 284-3462 ·
+            <a href="mailto:mb4bw@virginia.edu">mb4bw@virginia.edu</a>
+          </div>
+          <p class="mb-5">I am a Ph.D. candidate in the department of Systems Engineering at University of Virginia. Previously I worked as a JavaEE software developer at Yooz Search Engine from 2012 to 2014. I obtained a Masters degree in Computer Science from Amirkabir University of Technology, Iran in 2012. My interests include Data Science, Robotics, Software Development, Intelligent Transportation Systems, Deep Learning and Web Development.</br>I am an experienced software developer, data scientist and roboticist. Please check out my Resume and Portfolio below!</p>
+          <button class="btn" onclick="window.open('./pdf/mb_resume.pdf', '_blank');" ><i class="fa fa-download"></i> Download Resume</button>
+        <hr/>
+          <ul class="list-inline list-social-icons mb-0">
+           
+            <li class="list-inline-item">
+              <a href="https://www.linkedin.com/in/masoud-bashiri-90194240/" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/ashkanbashiri" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://scholar.google.com/citations?user=l-jzkgUAAAAJ&hl=en" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-google fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
         </div>
-        <!-- End #lead-content -->
+      </section>
 
-        <div id="lead-overlay"></div>
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
+        <div class="my-auto">
+          <h2 class="mb-5">Experience</h2>
 
-        <div id="lead-down">
-            <span>
-                <i class="fa fa-chevron-down" aria-hidden="true"></i>
-            </span>
-        </div>
-        <!-- End #lead-down -->
-    </div>
-    <!-- End #lead -->
-
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h2 class="heading">About Me</h2>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                        I am a Ph.D. candidate in the department of Systems Engineering at University of Virginia. Previously I worked as a JavaEE software developer at <a href="yooz.ir">Yooz Search Engine</a> from 2012 to 2014. I obtained a Masters degree in Computer Science from Amirkabir University of Technology, Iran in 2012.
-                        My interests include Data Science, Robotics, Software Development, Intelligent Transportation Systems, Deep Learning and Web Development.
-                    </p>
-                </div>
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">Researcher (Machine Learning, Intelligent Transportation Systems)</h3>
+              <div class="subheading mb-3">University of Virginia</div>
+              <p>Designed and developed a microscopic traffic simulator in Matlab. <a href="https://github.com/ashkanbashiri/paim_simulator" target="_blank" style="font-weight: bold;color:cornflowerblue">Github Link</a></br>
+                Built a number of <a href="http://f1tenth.org/" target="_blank" style="color:cornflowerblue;font-weight: bold">F/10 autonomous vehicles</a>.</br>
+                Designed and developed ROS-CC, a web application for control of the NAO and Baxter Robots.<a href="https://github.com/ashkanbashiri/ros_center" target="_blank" style="font-weight: bold;color:cornflowerblue">Github Link</a></p>
             </div>
-        </div>
-    </div>
-    <!-- End #about -->
-
-    <div id="experience" class="background-alt">
-        <h2 class="heading">Experience</h2>
-        <div id="experience-timeline">
-            <div data-date="March 2012 – August 2014">
-                <h3>Yooz Search Engine</h3>
-                <h4>Software Developer</h4>
-                <p>
-                    Java EE, JSF, Hadoop, Mysql
-                </p>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">December 2016 - Present</span>
             </div>
+          </div>
 
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">Full Stack Developer</h3>
+              <div class="subheading mb-3">Yooz Search Engine</div>
+
+              <p>Design and Development of a <a href="http://www.yooz.ir" target="_blank" style="font-weight: bold;color:cornflowerblue">Search Engine Evaluation System.</a></br>
+              In charge of the design and implementation of an evaluation/tagging system from the persistence layer (MySQL)
+                 to web interface in JAVEE/JSF.</br>
+              Hired 15 non-experts as test users and supervised their work through a web interface designed to log all activities of the taggers.</br>
+              Successfully implemented an evaluation system to compare Yooz search results with that of Google and Bing.</p>
+                </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">March 2012 - August 2014</span>
+            </div>
+          </div>
+
+          <div class="resume-item d-flex flex-column flex-md-row">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">Lecturer</h3>
+              <div class="subheading mb-3">Payam Nour University - Iran</div>
+              <p>Courses Taught: Computer Architecture, Theory of Formal Languages and Automata, Fundamentals of Computer Systems.</p>
+
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">February 2011 - July 2012</span>
+            </div>
+          </div>
+
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">C# Developer</h3>
+              <div class="subheading mb-3">Power Reseach Center, Tehran</div>
+              <p>Developed a user interface in C\#.net to monitor lamp posts.</p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">October 2008 - February 2009</span>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
+        <div class="my-auto">
+          <h2 class="mb-5">Education</h2>
+
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">University of Virginia</h3>
+              <div class="subheading mb-3">PhD in Systems &amp Information Engineering</div>
+              <div>Intelligent Transportation Systems</div>
+              <p>Courses: Optimization, Data Mining, Linear Control Systems, Cmputer Security, Computational Research</p>
+
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">August 2020</span>
+            </div>
+          </div>
+
+          <div class="resume-item d-flex flex-column flex-md-row">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">Amirkabir University of Technology</h3>
+              <div class="subheading mb-3">M.Sc. in Computer Science (Artificial Intelligence)</div>
+              <p>Courses: Advanced Artificial Intelligence, Machine Learning, Evolutionary Computation, Image Processing, Computer Vision, Robotics, Artificial Neural Networks, Wireless Communications</p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">September 2011</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
+        <div class="my-auto">
+          <h2 class="mb-5">Skills</h2>
+
+          <div class="subheading mb-3">Languages &amp; Frameworks</div>
+          <ul>
+            <li>
+              <i class="fa-li fa fa-check"></i>
+              Programming Languages: Java, Python, R, C/C++, C#
+            </li>
+
+            <li>
+              <i class="fa-li fa fa-check"></i>
+              Frameworks &amp; Tools: Tensorflow, Robot Operating System, Spring, Hadoop, JSF, Hibernate, Maven, Git, svn
+            </li>
+
+            <li>
+              <i class="fa-li fa fa-check"></i>
+              Databases: MySQL, PostgreSQL, MongoDB, Redis, HBase, Hazelcast
+            </li>
+
+            <li>
+              <i class="fa-li fa fa-check"></i>
+              Applications: PTV VISSIM, PTV Vistro, NetLogo, Matlab, Rviz, Gazebo
+            </li>
+          </ul>
+          
+          <div class="subheading mb-3">Web</div>
+          <ul>
+            <li>
+              <i class="fa-li fa fa-check"></i>
+              Javascript, Django, Node.js, Angular, HTML5, CSS
+            </li>
+          </ul>
+
+        
+        </div>
+      </section>
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="portfolio">
+        <div class="my-auto">
+          <div id="main">
+    <div id ="page-wrap">
+        
+        <button id='start_sim' onclick="run_sim()" type="button"
+         class="btn btn-primary btn-lg">Run Simulation</button>
+         <button id='stop_sim' onclick="stop_sim()" type="button"
+         class="btn btn-primary btn-lg">Stop Simulation</button>
+
+        <canvas id="myCanvas" width=600px height=400px></canvas>
+        <p style="font-size: 20;color: darkslategray;">A simple "Go-to-Goal". Demo written in Javascript</p>
+    </div>
+    <div id = "right-side">
+    <div id="chart_div"></div>
+    <div id="chart_div2"></div>
+</div>
+</div>
+</div>
+      </section>
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="portfolio2">
+        
+        <div class="my-auto">
+          <div id="main">
+    <div id ="page-wrap2">
+        <button id='start_obs' type="button"
+         class="btn btn-primary btn-lg">Run Simulation</button>
+         <script type="module">
+          import {run_obs} from './js/portfolio2.js'
+          
+          document.querySelector('#start_obs').addEventListener('click', run_obs)
+        </script>
+         <button id='stop_obs' type="button"
+         class="btn btn-primary btn-lg">Stop Simulation</button>
+         <script type="module">
+          import {stop_obs} from './js/portfolio2.js'
+          
+          document.querySelector('#stop_obs').addEventListener('click', stop_obs)
+        </script>
+
+        <canvas id="obsCanvas" width=600px height=400px></canvas>
+        <p style="font-size: 20;color: darkslategray;">Obstacle Avoidance using the Potential Fields Algorithm + "Go-to-Goal". Demo written in Javascript</p>
+
+    </div>
+    <div id = "right-side2">
+    <div id="chart_div3"></div>
+    <div id="chart_div4"></div>
+</div>
+</div>
+</div>
+      </section>
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="portfolio3">
+        
+        <div class="my-auto">
+          <div id="main">
+    <div id ="page-wrap2">
+        <button id='start_kf' type="button"
+         class="btn btn-primary btn-lg">Run Simulation</button>
+         <script type="module">
+          import {run_kf} from './js/portfolio3.js'
+          
+          document.querySelector('#start_kf').addEventListener('click', run_kf)
+        </script>
+         <button id='stop_kf' type="button"
+         class="btn btn-primary btn-lg">Stop Simulation</button>
+         <script type="module">
+          import {stop_kf} from './js/portfolio3.js'
+          
+          document.querySelector('#stop_kf').addEventListener('click', stop_kf)
+        </script>
+
+        <canvas id="kfCanvas" width=600px height=400px></canvas>
+        <p style="font-size: 20;color: darkslategray;">Estimating the Robot's Pose using the Kalman Filter Method. Demo written in Javascript</p>
+
+    </div>
+    <div id = "right-side2">
+    <div id="chart_div5"></div>
+    <div id="chart_div6"></div>
+</div>
+</div>
+</div>
+      </section>
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="publication">
+        <div class="my-auto">
+          <h2 class="mb-5">Selected Publication</h2>
+          <ul class="fa-ul mb-0">
+            <li>
+              <i class="fa-li fa fa-book text-warning"></i>
+              <a href="https://ieeexplore.ieee.org/abstract/document/7995794/" target="_blank" style="font-weight: bold;color:cornflowerblue">A platoon-based intersection management system for autonomous vehicles</a></li>
+            <li>
+              <i class="fa-li fa fa-book text-warning"></i>
+              <a href="https://ieeexplore.ieee.org/abstract/document/6256517/" target="_blank" style="font-weight: bold;color:cornflowerblue">Two Phased Cellular PSO: A New Collaborative Cellular Algorithm for Optimization in Dynamic Environments</a></li>
+            <li>
+              <i class="fa-li fa fa-book text-warning"></i>
+              <a href="https://link.springer.com/article/10.1007/s11370-012-0106-2" target="_blank" style="font-weight: bold;color:cornflowerblue">Hybrid adaptive differential evolution for mobile robot localization</a></li>
+            <li>
+              <i class="fa-li fa fa-book text-warning"></i>
+              <a href="https://ieeexplore.ieee.org/abstract/document/8569782/" target="_blank" style="font-weight: bold;color:cornflowerblue">PAIM: Platoon-based autonomous intersection management</a></li>
             
+          </ul>
         </div>
+      </section>
+
     </div>
-    <!-- End #experience -->
 
-    <div id="education">
-        <h2 class="heading">Education</h2>
-        <div class="education-block">
-            <h3>University of Virginia</h3>
-            <span class="education-date">Sept 2014 - May 2020 (Expected Graduation Date)</span>
-            <h4>Ph.D. in Systems Engineering</h4>
-        </div>
-        <!-- End .education-block -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <div class="education-block">
-            <h3>Amirkabir University of Technology</h3>
-            <span class="education-date">Sept 2008 - June 2011</span>
-            <h4>Master of Science in Computer Science - Artificial Intelligence</h4>
-            <ul>
-                <li>
-                    Thesis title: A modified evolutionary algorithm for simultaneous localization and mapping.
-                </li>
-                <li>
-                    Courses: Advanced Artificial Intelligence, Machine Learning, Evolutionary Computation, Image Processing, Computer Vision, Robotics, Artificial Neural Networks, Wireless Communications
-                </li>
-                
-            </ul>
-        </div>
-        <!-- End .education-block -->
-    </div>
-    <!-- End #education -->
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <div id="projects" class="background-alt">
-        <h2 class="heading">Projects</h2>
-        <div class="container">
-            <div class="row">
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <img src="images/project.jpg" />
-                    </div>
-                    <!-- End .project-image -->
-                    <div class="project-info">
-                        <h3>Cooperative Intersection Management (Ph.D Research)</h3>
-                        <p>
-                            Data-driven signal timing method for adaptive traffic signals. Model-based traffic state estimation using fixed-sensor readings and communications from Connected and Automated Vehicles (CAVs). 
-                        </p>
-                        <a href="https://github.com/ashkanbashiri/paim_simulator">View Project</a>
-                        
-                    </div>
-                    <!-- End .project-info -->
-                </div>
-                <!-- End .project -->
-
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <img src="images/project.jpg" />
-                    </div>
-                    <!-- End .project-image -->
-                    <div class="project-info">
-                        <h3>Robot Control Center</h3>
-                        <p>
-                            A web application that allows controlling various robotic platforms through a web-based graphical user interface.
-                        </p>
-                        <a href="https://github.com/ashkanbashiri/ros_center">View Project</a>
-                    </div>
-                    <!-- End .project-info -->
-                </div>
-                <!-- End .project -->
-            </div>
-        </div>
-    </div>
-    <!-- End #projects -->
-
-    <div id="skills">
-        <h2 class="heading">Skills</h2>
-        <ul>
-            <li>Java</li>
-            <li>Python</li>
-            <li>C++</li>
-            <li>JavaScript</li>
-            <li>Node.js</li>
-            <li>Angular</li>
-            <li>ROS</li>
-            <li>HTML & CSS</li>
-            <li>Matlab</li>
-            <li>Mysql</li>
-            <li>R</li>
-            <li>MongoDB</li>
-        </ul>
-    </div>
-    <!-- End #skills -->
-
-    <div id="contact">
-        <h2>Get in Touch</h2>
-        <div id="contact-form">
-            <form method="POST" action="https://formspree.io/email@email.com">
-                <input type="hidden" name="_subject" value="Contact request from personal website" />
-                <input type="email" name="_replyto" placeholder="Your email" required>
-                <textarea name="message" placeholder="Your message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </div>
-        <!-- End #contact-form -->
-    </div>
-    <!-- End #contact -->
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-5 copyright">
-                    <p>
-                        Copyright &copy; 2019 Ashkan Bashiri
-                    </p>
-                </div>
-                <div class="col-sm-2 top">
-                    <span id="to-top">
-                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-                    </span>
-                </div>
-                <div class="col-sm-5 social">
-                    <ul>
-                        <li>
-                            <a href="https://github.com/ashkanbashiri" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://stackoverflow.com/" target="_blank"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/masoud-bashiri-90194240" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        </li>
-                      
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- End footer -->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/scripts.min.js"></script>
-</body>
+    <!-- Custom scripts for this template -->
+    <script src="js/portfolio1.js"> </script>
+    <script type="module" src="js/portfolio2.js" > </script> 
+    <script type="module" src="js/portfolio3.js" > </script>
+    <script type="module" src="js/closest_point.js" > </script> 
+    <script src="js/resume.min.js"></script>
+  </body>
 
 </html>
