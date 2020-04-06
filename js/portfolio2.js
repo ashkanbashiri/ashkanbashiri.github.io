@@ -4,10 +4,11 @@ import {update_speed} from "./potential_field.js";
 var nodes = [[100,100],[100,150],[200,144],[120,70]]
 var nodes2 = [[400,250],[400,300],[300,250],[300,200]]
 var obstacle = [];
-var sigma = .035;
-var eta = 1000000;
-var max_dist = 30;
+var sigma = .025;
+var eta = 10000000;
+var max_dist = 40;
 var max_speed = 30
+var max_angular_velocity = Math.PI/4
 
 document.getElementById("stop_obs").disabled = true;
     var canvas2 = document.getElementById("obsCanvas");
@@ -24,7 +25,7 @@ document.getElementById("stop_obs").disabled = true;
     var e_x2 = 0
     var x_g2 = Math.random()*600
     var y_g2 = Math.random()*400
-    var kp_w2 = 20
+    var kp_w2 = 30
     var kp_v2 = 10
     var width = 20
     var height = 10
@@ -73,9 +74,6 @@ document.getElementById("stop_obs").disabled = true;
 
     canvas2 = document.getElementById("obsCanvas");
     ctx2 = canvas2.getContext("2d");
-    var x2 = 20
-    var y2 = 20
-    var theta2 = Math.random()*2*Math.PI - Math.PI
     theta_g2 = 0
     omega2 = 0
     v2 = 0
@@ -147,7 +145,7 @@ document.getElementById("stop_obs").disabled = true;
         v2 = Math.min(v2,max_speed)
         omega2 = omega2 * kp_w2+0.001 
         var o_sign = Math.abs(omega2) / omega2;
-        omega2 = o_sign * Math.min(Math.abs(omega2),Math.PI/4)
+        omega2 = o_sign * Math.min(Math.abs(omega2),max_angular_velocity)
 
     }
    
