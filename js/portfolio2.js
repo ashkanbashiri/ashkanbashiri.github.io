@@ -7,7 +7,7 @@ var obstacle = [];
 var sigma = .035;
 var eta = 1000000;
 var max_dist = 30;
-var max_speed = 15
+var max_speed = 30
 
 document.getElementById("stop_obs").disabled = true;
     var canvas2 = document.getElementById("obsCanvas");

@@ -25,6 +25,7 @@ document.getElementById("stop_sim").disabled = true;
     const interval = 100 //update every 20 miliseconds
     const sim_speed = 1
     const dt = (interval/1000)*sim_speed
+    var max_speed = 30;
 
     google.setOnLoadCallback(drawStuff);
 
@@ -126,7 +127,7 @@ document.getElementById("stop_sim").disabled = true;
         dist = (Math.sqrt(Math.pow(y_g-y,2) + Math.pow(x_g-x,2)))
 
         v = kp_v * dist;
-        v = Math.min(v,30)
+        v = Math.min(v,max_speed)
         if(dist<1)
         {
             v=0;

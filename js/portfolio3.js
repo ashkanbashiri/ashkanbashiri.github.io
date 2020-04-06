@@ -34,6 +34,7 @@ var sens2_error = 0;
     const interval3 = 100 //update every 20 miliseconds
     const sim_speed3 = 1
     const dt3 = (interval3/1000)*sim_speed3
+    var max_speed = 30;
 
     google.setOnLoadCallback(drawStuff5);
 
@@ -178,7 +179,7 @@ var sens2_error = 0;
         dist3 = (Math.sqrt(Math.pow(y_g3-y3,2) + Math.pow(x_g3-x3,2)))
 
         v3 = kp_v3 * dist3;
-        v3 = Math.min(v3,30)
+        v3 = Math.min(v3,max_speed)
         if(dist3<1)
         {
             v3=0;
