@@ -22,7 +22,7 @@ document.getElementById("stop_sim").disabled = true;
     var cx = 0
     var cy = 0
     var time = 0
-    const interval = 50 //update every 20 miliseconds
+    const interval = 100 //update every 20 miliseconds
     const sim_speed = 1
     const dt = (interval/1000)*sim_speed
 

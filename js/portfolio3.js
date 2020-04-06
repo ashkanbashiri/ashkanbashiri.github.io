@@ -31,7 +31,7 @@ var sens2_error = 0;
     var cx3 = 0
     var cy3 = 0
     var time3 = 0
-    const interval3 = 50 //update every 20 miliseconds
+    const interval3 = 100 //update every 20 miliseconds
     const sim_speed3 = 1
     const dt3 = (interval3/1000)*sim_speed3
 
