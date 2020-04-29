@@ -17,8 +17,8 @@ var obstacle = [];
 var sigma = 0.025;
 var eta = 10000000;
 var max_dist = 40;
-var max_speed = 30;
-var max_angular_velocity = Math.PI / 4;
+var max_speed = 20;
+var max_angular_velocity = Math.PI / 2;
 
 document.getElementById("stop_obs").disabled = true;
 var canvas2 = document.getElementById("obsCanvas");
@@ -35,7 +35,7 @@ var e_y2 = 0;
 var e_x2 = 0;
 var x_g2 = Math.random() * 600;
 var y_g2 = Math.random() * 400;
-var kp_w2 = 30;
+var kp_w2 = 10;
 var kp_v2 = 10;
 var width = 20;
 var height = 10;
@@ -122,7 +122,7 @@ function drawRobot2() {
   ctx2.stroke();
 
   //drawing wheels
-  ctx2.strokeStyle = "#FF0000";
+  ctx2.strokeStyle = "#333";
   ctx2.moveTo(x2 - 0.25 * width, y2 - 0.5 * height);
   ctx2.lineTo(x2 + 0.25 * width, y2 - 0.5 * height);
   ctx2.stroke();
@@ -159,14 +159,14 @@ function draw_goal2() {
   ctx2.arc(x_g2, y_g2, 5, 0, 2 * Math.PI, false);
   ctx2.fillStyle = "green";
   ctx2.fill();
-  ctx2.lineWidth = 2;
+  ctx2.lineWidth = 1;
   ctx2.strokeStyle = "#003300";
   ctx2.stroke();
   ctx2.font = "20px Lato";
   ctx2.fillText("Goal", x_g2 + 5, y_g2 - 5);
 }
 function draw_obstacle() {
-  ctx2.strokeStyle = "#FF0000";
+  ctx2.strokeStyle = "#FF4136";
   for (var i = 0; i < nodes.length - 1; i++) {
     ctx2.moveTo(nodes[i][0], nodes[i][1]);
     ctx2.lineTo(nodes[i + 1][0], nodes[i + 1][1]);
@@ -176,7 +176,7 @@ function draw_obstacle() {
   ctx2.lineTo(nodes[0][0], nodes[0][1]);
   ctx2.stroke();
 
-  ctx2.strokeStyle = "#000000";
+  ctx2.strokeStyle = "#FF4136";
   for (var i = 0; i < nodes2.length - 1; i++) {
     ctx2.moveTo(nodes2[i][0], nodes2[i][1]);
     ctx2.lineTo(nodes2[i + 1][0], nodes2[i + 1][1]);
@@ -192,6 +192,7 @@ function draw2() {
   draw_obstacle();
   ctx2.save();
   drawRobot2();
+  moveObstacles();
   obstacle_avoidance_step();
   x2 = x2 + v2 * Math.cos(theta2) * dt2;
   y2 = y2 + v2 * Math.sin(theta2) * dt2;
@@ -200,6 +201,19 @@ function draw2() {
   time2 = time2 + dt2;
   //timer2 = setTimeout(draw2, 1000 / interval2);
   timer2 = window.requestAnimationFrame(draw2);
+}
+
+function moveObstacles() {
+  let xMove1 = 2 - Math.random();
+  let xMove2 = -Math.random();
+  nodes.forEach((point) => {
+    point[0] += xMove1;
+    point[1] += xMove2;
+  });
+  nodes2.forEach((point) => {
+    point[0] += xMove2;
+    point[1] += xMove1;
+  });
 }
 
 function drawChart3() {
@@ -288,7 +302,18 @@ export function stop_obs() {
     data4.addColumn("number", "Distance");
     data4.addRows([[0, 0]]);
   }
-
+  nodes = [
+    [100, 100],
+    [100, 150],
+    [200, 144],
+    [120, 70],
+  ];
+  nodes2 = [
+    [400, 250],
+    [400, 300],
+    [300, 250],
+    [300, 200],
+  ];
   x2 = Math.random() * 600;
   y2 = Math.random() * 400;
   theta2 = Math.random() * 2 * Math.PI - Math.PI;
