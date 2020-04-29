@@ -166,7 +166,7 @@ function draw_goal2() {
   ctx2.fillText("Goal", x_g2 + 5, y_g2 - 5);
 }
 function draw_obstacle() {
-  ctx2.strokeStyle = "#FF4136";
+  ctx2.strokeStyle = "#FA8072";
   for (var i = 0; i < nodes.length - 1; i++) {
     ctx2.moveTo(nodes[i][0], nodes[i][1]);
     ctx2.lineTo(nodes[i + 1][0], nodes[i + 1][1]);
@@ -176,7 +176,7 @@ function draw_obstacle() {
   ctx2.lineTo(nodes[0][0], nodes[0][1]);
   ctx2.stroke();
 
-  ctx2.strokeStyle = "#FF4136";
+  ctx2.strokeStyle = "#FA8072";
   for (var i = 0; i < nodes2.length - 1; i++) {
     ctx2.moveTo(nodes2[i][0], nodes2[i][1]);
     ctx2.lineTo(nodes2[i + 1][0], nodes2[i + 1][1]);
