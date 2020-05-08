@@ -36,35 +36,34 @@
 
     width: 100%;
 }
-
-#right-side    {
-    width: 600;
-    min-height: 400px;
-    background: gray;
-    float: left;
-    margin-left: 20px;
+.canvas{
+  margin:10px 0;
+  background: white;
+  border: 5px dashed black;
 }
 
-#page-wrap  {
-    width: 600px;
-    min-height: 600px;
-    float: left;
-    margin-left: 0;
+.right-side    {
+    width: 100%;
+    margin:0 auto;
+    grid-area: right;
 }
-#right-side2    {
-    width: 520;
-    min-height: 400px;
-    background: gray;
-    float: left;
-    margin-left: 20px;
+.left-side    {
+    width: 100%;
+    margin:0 auto;
+    grid-area: left;
 }
 
-#page-wrap2  {
-    width: 600px;
-    min-height: 600px;
-    float: left;
-    margin-left: 0;
+.page-wrap  {
+  display: grid;
+  grid-template-areas:
+    "left right";
+  grid-column-gap: 50px;
+  grid-row-gap: 5px;
+  grid-template-columns: 1fr 2fr;
+  width: 100%;
+  height: 100vh;
 }
+
 
 .clear:after {
     clear: both;
@@ -294,7 +293,7 @@
 
             <li>
               <i class="fa-li fa fa-check"></i>
-              Frameworks &amp; Tools: Tensorflow, Robot Operating System, Spring, Hadoop, JSF, Hibernate, Maven, Git, svn
+              Frameworks &amp; Tools: Tensorflow, Robot Operating System, Spring, Docker, Kubernetes, Hadoop, JSF, Hibernate, Maven, Git, svn
             </li>
 
             <li>
@@ -312,7 +311,7 @@
           <ul>
             <li>
               <i class="fa-li fa fa-check"></i>
-              Javascript, Django, Node.js, Angular, HTML5, CSS
+              Javascript, Reactjs, Django, Node.js, Express.js, Angular, HTML5, CSS
             </li>
           </ul>
 
@@ -323,20 +322,21 @@
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="portfolio">
         <div class="my-auto">
           <div id="main">
-    <div id ="page-wrap">
-        
+    <div id ="page-wrap" class="page-wrap">
+      <div id = "left-side" class="left-side">
         <button id='start_sim' onclick="run_sim()" type="button"
          class="btn btn-primary btn-lg">Run Simulation</button>
          <button id='stop_sim' onclick="stop_sim()" type="button"
          class="btn btn-primary btn-lg">Stop Simulation</button>
 
-        <canvas id="myCanvas" width=600px height=400px></canvas>
+        <canvas id="myCanvas" width=600px height=400px class="canvas"></canvas>
         <p style="font-size: 20;color: darkslategray;">A simple "Go-to-Goal". Demo written in Javascript</p>
+      </div>
+        <div id = "right-side" class="right-side">
+          <div id="chart_div"></div>
+          <div id="chart_div2"></div>
+        </div>
     </div>
-    <div id = "right-side">
-    <div id="chart_div"></div>
-    <div id="chart_div2"></div>
-</div>
 </div>
 </div>
       </section>
@@ -345,7 +345,8 @@
         
         <div class="my-auto">
           <div id="main">
-    <div id ="page-wrap2">
+            <div id ="page-wrap2" class="page-wrap">
+              <div id = "left-side2" class="left-side">
         <button id='start_obs' type="button"
          class="btn btn-primary btn-lg">Run Simulation</button>
          <script type="module">
@@ -361,13 +362,14 @@
           document.querySelector('#stop_obs').addEventListener('click', stop_obs)
         </script>
 
-        <canvas id="obsCanvas" width=600px height=400px></canvas>
+        <canvas id="obsCanvas" width=600px height=400px class="canvas"></canvas>
         <p style="font-size: 20;color: darkslategray;">Obstacle Avoidance using the Potential Fields Algorithm + "Go-to-Goal". Demo written in Javascript</p>
 
     </div>
-    <div id = "right-side2">
+    <div id = "right-side2" class="right-side">
     <div id="chart_div3"></div>
     <div id="chart_div4"></div>
+    </div>
 </div>
 </div>
 </div>
@@ -377,7 +379,8 @@
         
         <div class="my-auto">
           <div id="main">
-    <div id ="page-wrap2">
+            <div id ="page-wrap3" class="page-wrap">
+              <div id = "left-side3" class="left-side">
         <button id='start_kf' type="button"
          class="btn btn-primary btn-lg">Run Simulation</button>
          <script type="module">
@@ -393,13 +396,14 @@
           document.querySelector('#stop_kf').addEventListener('click', stop_kf)
         </script>
 
-        <canvas id="kfCanvas" width=600px height=400px></canvas>
+        <canvas id="kfCanvas" width=600px height=400px class="canvas"></canvas>
         <p style="font-size: 20;color: darkslategray;">Estimating the Robot's Pose using the Kalman Filter Method. Demo written in Javascript</p>
 
     </div>
-    <div id = "right-side2">
+    <div id = "right-side2" class="right-side">
     <div id="chart_div5"></div>
     <div id="chart_div6"></div>
+    </div>
 </div>
 </div>
 </div>

@@ -126,7 +126,7 @@ function gtg() {
 
   v = kp_v * dist;
   v = Math.min(v, max_speed);
-  if (dist < 1) {
+  if (dist < 5) {
     v = 0;
     omega = 0;
   }

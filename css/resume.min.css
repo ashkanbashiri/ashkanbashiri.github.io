@@ -123,14 +123,34 @@ section.resume-section .resume-item .resume-date {
 .text-primary {
   color: #bd5d38 !important;
 }
+
 a {
-  color: #bd5d38;
+  display: inline-block;
+  position: relative;
+  padding: 0;
 }
-a:active,
-a:focus,
-a:hover {
-  color: #824027;
+/*
+a:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 1px;
+  left: 50%;
+  position: absolute;
+  background-color: white;
+  transition: width 0.5s ease 0s, left 0.5s ease 0s;
+  width: 0;
+  padding: 0;
 }
+
+a:hover:after {
+  width: 100%;
+  left: 0;
+  padding: 0;
+}
+*/
+
 .nav-link[data-toggle].collapsed:before {
   content: " ▾";
 }
