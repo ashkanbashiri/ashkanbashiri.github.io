@@ -150,7 +150,24 @@ a:hover:after {
   padding: 0;
 }
 */
-
+.demolink {
+  color: white;
+  transition: all 0.4s ease-in-out;
+}
+.demolink:hover {
+  text-decoration: none;
+  color: white;
+}
+.traingle {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  transition: all 0.4s ease-in;
+}
+.traingle:hover {
+  opacity: 0.8;
+  transform: translateX(-50px) rotate(-145deg);
+}
 .nav-link[data-toggle].collapsed:before {
   content: " ▾";
 }
