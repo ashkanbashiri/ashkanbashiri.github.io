@@ -157,6 +157,7 @@ a:hover:after {
 }
 .arrowy {
   width: 200px;
+  box-shadow: inset -20px 0 10px -10px rgba(0, 0, 0, 0.7);
 }
 .arrowy:hover .icon {
   transform: translateX(25px);

@@ -29,7 +29,7 @@
 
 /* Darker background on mouse-over */
 .btn:hover {
-  background-color: RoyalBlue;
+  opacity: 0.85;
 }
  #main {
     margin: auto;
@@ -43,27 +43,36 @@
 }
 
 .right-side    {
-    width: 100%;
+  grid-area: "right";
     margin:0 auto;
-    grid-area: right;
 }
 .left-side    {
-    width: 100%;
+  grid-area: "left";
     margin:0 auto;
-    grid-area: left;
 }
 
 .page-wrap  {
+  width:100%;
   display: grid;
   grid-template-areas:
     "left right";
-  grid-column-gap: 50px;
+  grid-column-gap: 20px;
   grid-row-gap: 5px;
-  grid-template-columns: 1fr 2fr;
-  width: 100%;
-  height: 100vh;
+  grid-template-columns: 1fr 1fr;
 }
-
+@media (max-width:1200px){
+  .page-wrap{
+    width:100%;
+  display: flex;
+  flex-direction: column;
+  }
+  .right-side    {
+  flex: 1;
+}
+.left-side    {
+  flex: 1;
+}
+}
 
 .clear:after {
     clear: both;
@@ -331,7 +340,6 @@
          class="btn btn-primary btn-lg">Run Simulation</button>
          <button id='stop_sim' onclick="stop_sim()" type="button"
          class="btn btn-primary btn-lg">Stop Simulation</button>
-
         <canvas id="myCanvas" width=600px height=400px class="canvas"></canvas>
         <p style="font-size: 20;color: darkslategray;">A simple "Go-to-Goal". Demo written in Javascript</p>
       </div>
@@ -352,18 +360,10 @@
               <div id = "left-side2" class="left-side">
         <button id='start_obs' type="button"
          class="btn btn-primary btn-lg">Run Simulation</button>
-         <script type="module">
-          import {run_obs} from './js/portfolio2.js'
-          
-          document.querySelector('#start_obs').addEventListener('click', run_obs)
-        </script>
+         
          <button id='stop_obs' type="button"
          class="btn btn-primary btn-lg">Stop Simulation</button>
-         <script type="module">
-          import {stop_obs} from './js/portfolio2.js'
-          
-          document.querySelector('#stop_obs').addEventListener('click', stop_obs)
-        </script>
+         
 
         <canvas id="obsCanvas" width=600px height=400px class="canvas"></canvas>
         <p style="font-size: 20;color: darkslategray;">Obstacle Avoidance using the Potential Fields Algorithm + "Go-to-Goal". Demo written in Javascript</p>
@@ -386,18 +386,10 @@
               <div id = "left-side3" class="left-side">
         <button id='start_kf' type="button"
          class="btn btn-primary btn-lg">Run Simulation</button>
-         <script type="module">
-          import {run_kf} from './js/portfolio3.js'
-          
-          document.querySelector('#start_kf').addEventListener('click', run_kf)
-        </script>
+        
          <button id='stop_kf' type="button"
          class="btn btn-primary btn-lg">Stop Simulation</button>
-         <script type="module">
-          import {stop_kf} from './js/portfolio3.js'
-          
-          document.querySelector('#stop_kf').addEventListener('click', stop_kf)
-        </script>
+         
 
         <canvas id="kfCanvas" width=600px height=400px class="canvas"></canvas>
         <p style="font-size: 20;color: darkslategray;">Estimating the Robot's Pose using the Kalman Filter Method. Demo written in Javascript</p>
@@ -434,6 +426,28 @@
 
     </div>
 
+
+
+    <script type="module">
+      import {run_kf} from './js/portfolio3.js'
+      
+      document.querySelector('#start_kf').addEventListener('click', run_kf)
+    </script>
+    <script type="module">
+      import {stop_kf} from './js/portfolio3.js'
+      
+      document.querySelector('#stop_kf').addEventListener('click', stop_kf)
+    </script>
+    <script type="module">
+      import {run_obs} from './js/portfolio2.js'
+      
+      document.querySelector('#start_obs').addEventListener('click', run_obs)
+    </script>
+    <script type="module">
+      import {stop_obs} from './js/portfolio2.js'
+      
+      document.querySelector('#stop_obs').addEventListener('click', stop_obs)
+    </script>
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
