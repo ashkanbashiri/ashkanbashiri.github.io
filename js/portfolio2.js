@@ -35,7 +35,7 @@ var e_y2 = 0;
 var e_x2 = 0;
 var x_g2 = Math.random() * 600;
 var y_g2 = Math.random() * 400;
-var kp_w2 = 10;
+var kp_w2 = 15;
 var kp_v2 = 10;
 var width = 20;
 var height = 10;
@@ -194,6 +194,10 @@ function draw2() {
   drawRobot2();
   moveObstacles();
   obstacle_avoidance_step();
+  if (v2 < 1) {
+    stop_obs();
+    return;
+  }
   x2 = x2 + v2 * Math.cos(theta2) * dt2;
   y2 = y2 + v2 * Math.sin(theta2) * dt2;
   theta2 = theta2 + omega2 * dt2;
@@ -289,18 +293,18 @@ function drawStuff4() {
 export function stop_obs() {
   document.getElementById("start_obs").disabled = false;
   document.getElementById("stop_obs").disabled = true;
-  ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+  //ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
   if (timer2 != null) {
     //clearTimeout(timer2);
     window.cancelAnimationFrame(timer2);
-    data3 = new google.visualization.DataTable();
-    data3.addColumn("number", "Time");
-    data3.addColumn("number", "Linear Velocity");
-    data3.addRows([[0, 0]]);
-    data4 = new google.visualization.DataTable();
-    data4.addColumn("number", "Time");
-    data4.addColumn("number", "Distance");
-    data4.addRows([[0, 0]]);
+    // data3 = new google.visualization.DataTable();
+    // data3.addColumn("number", "Time");
+    // data3.addColumn("number", "Linear Velocity");
+    // data3.addRows([[0, 0]]);
+    // data4 = new google.visualization.DataTable();
+    // data4.addColumn("number", "Time");
+    // data4.addColumn("number", "Distance");
+    // data4.addRows([[0, 0]]);
   }
   nodes = [
     [100, 100],
