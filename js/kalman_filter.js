@@ -180,7 +180,7 @@ export function update_kf(vx, vy, dt) {
     Math.pow(true_pos[0][0] - Z[2][0], 2) +
       Math.pow(true_pos[1][0] - Z[3][0], 2)
   );
-  console.log(P);
+  // console.log(P);
   return [
     true_pos[0][0],
     est_pos[0][0],

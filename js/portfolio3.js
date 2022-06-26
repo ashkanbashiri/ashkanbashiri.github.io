@@ -8,6 +8,7 @@ let array = [
 document.getElementById("stop_kf").disabled = true;
 var kf_error = 0;
 var sens1_error = 0;
+var trail3 = [];
 var sens2_error = 0;
 var canvas3 = document.getElementById("kfCanvas");
 var ctx3 = canvas3.getContext("2d");
@@ -108,6 +109,7 @@ function drawRobot3() {
   ctx3.beginPath();
   cx3 = x3;
   cy3 = y3;
+  trail3.push({ x: x3, y: y3 });
   ctx3.translate(cx3, cy3); //translate to center of shape
   ctx3.rotate(theta3); //rotate 25 degrees.
   ctx3.translate(-cx3, -cy3);
@@ -215,6 +217,19 @@ function draw_goal3() {
   ctx3.fillText("Goal", x_g3 + 5, y_g3 - 5);
 }
 
+function drawTrail3() {
+  for (let i = 0; i < trail3.length; ++i) {
+    ctx3.beginPath();
+    ctx3.arc(trail3[i].x, trail3[i].y, 1, 0, 2 * Math.PI, false);
+    ctx3.fillStyle = "#03e9f4";
+    ctx3.fill();
+    ctx3.lineWidth = 1;
+    ctx3.strokeStyle = "#03e9f4";
+    ctx3.stroke();
+    ctx3.restore();
+  }
+}
+
 function draw3() {
   ctx3.clearRect(0, 0, canvas3.width, canvas3.height);
   draw_goal3();
@@ -222,6 +237,7 @@ function draw3() {
   drawRobot3();
   ctx3.save();
   drawRobotEstimate();
+  drawTrail3();
   kf_step();
   x3 = x3 + v3 * Math.cos(theta3) * dt3;
   y3 = y3 + v3 * Math.sin(theta3) * dt3;
@@ -333,6 +349,7 @@ export function stop_kf() {
   theta_g3 = 0;
   omega3 = 0;
   alg = 1;
+  trail3 = [];
   v3 = 0;
   dist3 = 0;
   e_y3 = 0;

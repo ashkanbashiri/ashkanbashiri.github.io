@@ -3,6 +3,7 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 var x = Math.random() * 600;
 var y = Math.random() * 400;
+var trail = [];
 var dx = 2;
 var dy = -2;
 var theta = Math.random() * 2 * Math.PI - Math.PI;
@@ -89,10 +90,23 @@ function run_sim() {
     packages: ["corechart"],
   });
 }
+function drawTrail() {
+  for (let i = 0; i < trail.length; ++i) {
+    ctx.beginPath();
+    ctx.arc(trail[i].x, trail[i].y, 1, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "#03e9f4";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "#03e9f4";
+    ctx.stroke();
+    ctx.restore();
+  }
+}
 function drawRobot() {
   ctx.beginPath();
   cx = x;
   cy = y;
+  trail.push({ x: cx, y: cy });
   ctx.translate(cx, cy); //translate to center of shape
   ctx.rotate(theta); //rotate 25 degrees.
   ctx.translate(-cx, -cy);
@@ -149,6 +163,7 @@ function draw() {
   draw_goal();
   ctx.save();
   drawRobot();
+  drawTrail();
   gtg();
   if (v === 0) {
     stop_sim();
@@ -254,4 +269,5 @@ function stop_sim() {
   }
   x = Math.random() * 600;
   y = Math.random() * 400;
+  trail = [];
 }

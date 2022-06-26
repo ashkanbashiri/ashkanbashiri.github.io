@@ -20,6 +20,7 @@ var max_dist = 40;
 var max_speed = 20;
 var max_angular_velocity = Math.PI / 2;
 
+var trail2 = [];
 document.getElementById("stop_obs").disabled = true;
 var canvas2 = document.getElementById("obsCanvas");
 var ctx2 = canvas2.getContext("2d");
@@ -108,6 +109,7 @@ function drawRobot2() {
   ctx2.beginPath();
   cx2 = x2;
   cy2 = y2;
+  trail2.push({ x: x2, y: y2 });
   ctx2.translate(cx2, cy2); //translate to center of shape
   ctx2.rotate(theta2); //rotate 25 degrees.
   ctx2.translate(-cx2, -cy2);
@@ -165,6 +167,18 @@ function draw_goal2() {
   ctx2.font = "20px Lato";
   ctx2.fillText("Goal", x_g2 + 5, y_g2 - 5);
 }
+function drawTrail2() {
+  for (let i = 0; i < trail2.length; ++i) {
+    ctx2.beginPath();
+    ctx2.arc(trail2[i].x, trail2[i].y, 1, 0, 2 * Math.PI, false);
+    ctx2.fillStyle = "#03e9f4";
+    ctx2.fill();
+    ctx2.lineWidth = 1;
+    ctx2.strokeStyle = "#03e9f4";
+    ctx2.stroke();
+    ctx2.restore();
+  }
+}
 function draw_obstacle() {
   ctx2.strokeStyle = "#FA8072";
   for (var i = 0; i < nodes.length - 1; i++) {
@@ -192,6 +206,7 @@ function draw2() {
   draw_obstacle();
   ctx2.save();
   drawRobot2();
+  drawTrail2();
   moveObstacles();
   obstacle_avoidance_step();
   if (v2 < 1) {
@@ -336,4 +351,5 @@ export function stop_obs() {
   cx2 = 0;
   cy2 = 0;
   time2 = 0;
+  trail2 = [];
 }
