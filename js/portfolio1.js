@@ -83,7 +83,7 @@ function run_sim() {
   time = 0;
   //timer = setInterval(draw, interval);
   //timer = setTimeout(draw, 1000 / interval);
-  timer = window.requestAnimationFrame(draw);
+  draw();
   //draw();
 
   google.load("visualization", "1.1", {
@@ -253,6 +253,7 @@ function stop_sim() {
   document.getElementById("start_sim").disabled = false;
   document.getElementById("stop_sim").disabled = true;
   //ctx.clearRect(0, 0, canvas.width, canvas.height);
+  window.cancelAnimationFrame(timer);
   if (timer != null) {
     //clearInterval(timer);
     //clearTimeout(timer);

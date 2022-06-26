@@ -7,6 +7,7 @@ let array = [
 
 document.getElementById("stop_kf").disabled = true;
 var kf_error = 0;
+var trailEst = [];
 var sens1_error = 0;
 var trail3 = [];
 var sens2_error = 0;
@@ -99,7 +100,7 @@ export function run_kf() {
   time3 = 0;
   //timer3 = setInterval(draw3, interval3);
   //timer3 = setTimeout(draw3, 1000 / interval3);
-  timer3 = window.requestAnimationFrame(draw3);
+  draw3();
 
   google.load("visualization", "1.1", {
     packages: ["corechart"],
@@ -139,6 +140,7 @@ function drawRobotEstimate() {
   ctx3.beginPath();
   cx3 = x_est;
   cy3 = y_est;
+  trailEst.push({ x: x_est, y: y_est });
   ctx3.translate(cx3, cy3); //translate to center of shape
   ctx3.rotate(theta3); //rotate 25 degrees.
   ctx3.translate(-cx3, -cy3);
@@ -229,6 +231,18 @@ function drawTrail3() {
     ctx3.restore();
   }
 }
+function drawEstTrail3() {
+  for (let i = 0; i < trailEst.length; ++i) {
+    ctx3.beginPath();
+    ctx3.arc(trailEst[i].x, trailEst[i].y, 1, 0, 2 * Math.PI, false);
+    ctx3.fillStyle = "red";
+    ctx3.fill();
+    ctx3.lineWidth = 1;
+    ctx3.strokeStyle = "red";
+    ctx3.stroke();
+    ctx3.restore();
+  }
+}
 
 function draw3() {
   ctx3.clearRect(0, 0, canvas3.width, canvas3.height);
@@ -238,6 +252,8 @@ function draw3() {
   ctx3.save();
   drawRobotEstimate();
   drawTrail3();
+  ctx3.save();
+  drawEstTrail3();
   kf_step();
   x3 = x3 + v3 * Math.cos(theta3) * dt3;
   y3 = y3 + v3 * Math.sin(theta3) * dt3;
@@ -325,9 +341,10 @@ export function stop_kf() {
   document.getElementById("start_kf").disabled = false;
   document.getElementById("stop_kf").disabled = true;
   ctx3.clearRect(0, 0, canvas3.width, canvas3.height);
+  window.cancelAnimationFrame(timer3);
   if (timer3 != null) {
     //clearInterval(timer3);
-    window.cancelAnimationFrame(timer3);
+
     data5 = new google.visualization.DataTable();
     data5.addColumn("number", "Time");
     data5.addColumn("number", "KF Error");
@@ -350,6 +367,7 @@ export function stop_kf() {
   omega3 = 0;
   alg = 1;
   trail3 = [];
+  trailEst = [];
   v3 = 0;
   dist3 = 0;
   e_y3 = 0;

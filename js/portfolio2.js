@@ -97,7 +97,8 @@ export function run_obs() {
   time2 = 0;
   //timer2 = setInterval(draw2, interval2);
   //timer2 = setTimeout(draw2, 1000 / interval2);
-  timer2 = window.requestAnimationFrame(draw2);
+  // timer2 = window.requestAnimationFrame(draw2);
+  draw2();
 
   google.load("visualization", "1.1", {
     packages: ["corechart"],
@@ -308,19 +309,7 @@ function drawStuff4() {
 export function stop_obs() {
   document.getElementById("start_obs").disabled = false;
   document.getElementById("stop_obs").disabled = true;
-  //ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
-  if (timer2 != null) {
-    //clearTimeout(timer2);
-    window.cancelAnimationFrame(timer2);
-    // data3 = new google.visualization.DataTable();
-    // data3.addColumn("number", "Time");
-    // data3.addColumn("number", "Linear Velocity");
-    // data3.addRows([[0, 0]]);
-    // data4 = new google.visualization.DataTable();
-    // data4.addColumn("number", "Time");
-    // data4.addColumn("number", "Distance");
-    // data4.addRows([[0, 0]]);
-  }
+  window.cancelAnimationFrame(timer2);
   nodes = [
     [100, 100],
     [100, 150],
