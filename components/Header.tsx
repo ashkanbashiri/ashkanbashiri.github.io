@@ -20,7 +20,7 @@ export default function Header() {
     return () => document.body.classList.remove("overflow-hidden");
   }, [open]);
   useEffect(() => {
-    const handleEsc = (event: any) => {
+    const handleEsc = (event: { key: string }) => {
       if (event?.key === "Escape") {
         setOpen(false);
       }
