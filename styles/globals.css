@@ -1,0 +1,209 @@
+/* Import Tailwind utilities for version 4 */
+@tailwind utilities;
+
+/* Base HTML and body styles */
+html {
+  font-family: var(--font-noto-sans);
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-foreground;
+  font-feature-settings: "rlig" 1, "calt" 1;
+  max-width: 100%;
+}
+
+/* Paragraph styles */
+p {
+  @apply font-[var(--font-noto-sans)];
+}
+
+/* Fade-out utility */
+.fade-out {
+  @apply pointer-events-none;
+}
+
+/* Scrollbar hiding */
+.no-scrollbar {
+  @apply scrollbar-none; /* Tailwind 4's utility for hiding scrollbars */
+}
+
+/* Links */
+a {
+  @apply text-primary-foreground no-underline transition-colors duration-200;
+}
+
+a:hover {
+  @apply no-underline;
+}
+
+/* Form inputs */
+input,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+textarea,
+select {
+  @apply text-base;
+}
+
+/* Placeholder styles */
+input::placeholder,
+textarea::placeholder {
+  @apply text-black/50 dark:text-white/40;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  @apply text-black/50 dark:text-white/40;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  @apply text-black/40 dark:text-white/40;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply bg-[#333] p-2 border border-red-400 w-3 h-3;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-600 rounded-full w-2 h-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#333] p-2;
+}
+
+/* Range input */
+input[type="range"] {
+  @apply h-2.5 bg-neutral-200 border-none rounded-none appearance-none transition-all active:bg-neutral-300 dark:bg-neutral-700 dark:active:bg-neutral-600;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  @apply appearance-none w-3 h-5 bg-neutral-800 rounded-full transition-all active:bg-neutral-900 active:w-4 active:h-6 dark:bg-neutral-100 dark:active:bg-white;
+}
+
+/* Main wrapper */
+.main-wrapper {
+  @apply w-full md:w-[470px] lg:w-[800px] flex flex-col items-center justify-start gap-6 mb-16 pb-64;
+}
+
+/* React colorful */
+.react-colorful {
+  @apply w-full;
+}
+
+/* Hidden reference */
+[data-reference-hidden] {
+  @apply opacity-0 pointer-events-none;
+}
+
+/* Spinner */
+.spinner {
+  @apply fixed z-[999999] inset-0 w-full h-full bg-white/50 flex justify-center items-center;
+}
+
+.spinner-icon {
+  @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex w-[100px] h-[100px] justify-center items-center z-[1000000];
+}
+
+/* Dark/light image toggling */
+.darkimage {
+  @apply hidden;
+}
+
+.lightimage {
+  @apply block;
+}
+
+.dark .darkimage {
+  @apply block;
+}
+
+.dark .lightimage {
+  @apply hidden;
+}
+
+/* Markdown styles */
+.wmde-markdown,
+.wmde-markdown * {
+  @apply bg-background text-foreground;
+}
+
+/* Tailwind base layer with custom CSS variables */
+@layer base {
+  :root {
+    --tw-prose-quotes: 0 0% 18%;
+    --headers-font-family: "Inter", sans-serif;
+    --background: 0 0% 100%;
+    --background-subtle: 216 24% 96%;
+    --background-darker: 0 0% 89%;
+    --background-darkest: 0 0% 80%;
+    --foreground: 222.2 47.4% 11.2%;
+    --foreground-subtle: 222.2 17.4% 21.2%;
+    --foreground-nav: 300 9% 35%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 65 55% 50%;
+    --card: 0 0% 98%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    --border: 214.3 31.8% 91.4%;
+    --input: var(--background);
+    --primary: var(--background);
+    --primary-foreground: 199.5 100% 29%;
+    --primary-foreground-subtle: 199.5 100% 25%;
+    --primary-foreground-muted: 199.5 100% 18%;
+    --secondary: var(--background);
+    --secondary-foreground: 345 100% 64%;
+    --secondary-foreground-subtle: 345 100% 58%;
+    --accent: var(--background);
+    --accent-foreground: 335 55% 50%;
+    --accent-foreground-subtle: 335 55% 40%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 350 89% 85%;
+    --ring: 215 20.2% 65.1%;
+    --radius: 0.5rem;
+    --link: 226 92% 63%;
+    --body-bg: 216 25% 95%;
+    --nav-bg: var(--background);
+    --nav-icons: 220 3% 39%;
+  }
+
+  .dark {
+    --tw-prose-quotes: 0 0% 18%;
+    --background: 0 0% 14%;
+    --background-subtle: 0 0% 16%;
+    --background-darker: 0 0% 18.16%;
+    --background-darkest: 0 0% 22.16%;
+    --nav-icons: 214 5% 74%;
+    --input: 0 0% 19.22%;
+    --foreground: 0 0% 93%;
+    --foreground-subtle: 0 0% 89%;
+    --primary: 210 4% 9%;
+    --secondary: 210 4% 9%;
+    --accent: 210 4% 9%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 350 89% 85%;
+    --border: 0 0% 23.53%;
+    --active-border: 206.04 100% 41.57%;
+    --body-bg: 0 0% 12%;
+    --nav-bg: var(--background);
+    --foreground-nav: 0 0% 93%;
+    --nav-icons: 0 0% 93%;
+  }
+
+  * {
+    @apply border-border outline-none;
+  }
+
+  .blurry {
+    @apply absolute bottom-0 w-full h-[30%] z-[1] cursor-pointer;
+  }
+}

@@ -1,19 +1,92 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base HTML and body styles */
+html {
+  font-family: var(--font-noto-sans);
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-feature-settings: "rlig" 1, "calt" 1;
+  max-width: 100%;
+}
+
+@layer base {
+  :root {
+    --tw-prose-quotes: 0 0% 18%;
+    --headers-font-family: "Inter", sans-serif;
+    --background: 0 0% 100%;
+    --background-subtle: 216 24% 96%;
+    --background-darker: 0 0% 89%;
+    --background-darkest: 0 0% 80%;
+    --foreground: 222.2 47.4% 11.2%;
+    --foreground-subtle: 222.2 17.4% 21.2%;
+    --foreground-nav: 300 9% 35%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 65 55% 50%;
+    --card: 0 0% 98%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    --border: 214.3 31.8% 91.4%;
+    --input: var(--background);
+    --primary: var(--background);
+    --primary-foreground: 199.5 100% 29%;
+    --primary-foreground-subtle: 199.5 100% 25%;
+    --primary-foreground-muted: 199.5 100% 18%;
+    --secondary: var(--background);
+    --secondary-foreground: 345 100% 64%;
+    --secondary-foreground-subtle: 345 100% 58%;
+    --accent: var(--background);
+    --accent-foreground: 335 55% 50%;
+    --accent-foreground-subtle: 335 55% 40%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 350 89% 85%;
+    --ring: 215 20.2% 65.1%;
+    --radius: 0.5rem;
+    --link: 226 92% 63%;
+    --body-bg: 216 25% 95%;
+    --nav-bg: var(--background);
+    --nav-icons: 220 3% 39%;
+  }
+
+  .dark {
+    --tw-prose-quotes: 0 0% 18%;
+    --background: 0 0% 14%;
+    --background-subtle: 0 0% 16%;
+    --background-darker: 0 0% 18.16%;
+    --background-darkest: 0 0% 22.16%;
+    --nav-icons: 214 5% 74%;
+    --input: 0 0% 19.22%;
+    --foreground: 0 0% 93%;
+    --foreground-subtle: 0 0% 89%;
+    --primary: 210 4% 9%;
+    --secondary: 210 4% 9%;
+    --accent: 210 4% 9%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 350 89% 85%;
+    --border: 0 0% 23.53%;
+    --active-border: 206.04 100% 41.57%;
+    --body-bg: 0 0% 12%;
+    --nav-bg: var(--background);
+    --foreground-nav: 0 0% 93%;
+    --nav-icons: 0 0% 93%;
+  }
+
+  /* * {
+    @apply border-border outline-none;
+  } */
+
+  /* .blurry {
+    @apply absolute bottom-0 w-full h-[30%] z-[1] cursor-pointer;
+  } */
+  .wmde-markdown,
+  .wmde-markdown * {
+    background-color: hsl(
+      var(--bg-background)
+    ) !important; /* Your desired background color */
+    color: hsl(var(--foreground)) !important; /* Your desired font color */
+  }
 }
