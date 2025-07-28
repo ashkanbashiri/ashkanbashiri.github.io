@@ -3,10 +3,16 @@
 import { motion } from "framer-motion";
 const PROJECTS = [
   {
-    title: "UniversityCube",
+    title: "AcadoMeet",
     description: "Academia networking & showcase platform",
-    link: "https://universitycube.net",
+    link: "https://acadomeet.com",
     img: "/ucube.png",
+  },
+  {
+    title: "EZPaper.app",
+    description: "AI-powered research paper summarizer & note-taker",
+    link: "https://ezpaper.app",
+    img: "/ezpaper.png",
   },
   //   {
   //     title: "Crypto Bot",
@@ -19,15 +25,18 @@ const PROJECTS = [
 export default function Projects() {
   return (
     <section id="projects" className="max-w-4xl mx-auto py-20">
-      <h2 className="text-5xl font-bold text-center mb-12">Projects</h2>
-      <div className="grid gap-8 md:grid-cols-2 h-fit">
+      <h2 className="text-5xl font-bold text-center mb-12">
+        Featured Projects
+      </h2>
+      <div className="grid gap-8 md:grid-cols-2 min-h-fit">
         {PROJECTS.map((p, i) => (
           <motion.a
             key={p.title}
             href={p.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="group block bg-primary-foreground rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition h-fit"
+            className="group block bg-primary-foreground rounded-3xl border border-transparent hover:border-violet-500 overflow-hidden shadow-lg hover:shadow-2xl transition
+            duration-300 ease-in-out h-full"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.2 }}

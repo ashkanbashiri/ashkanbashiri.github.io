@@ -8,8 +8,8 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Masoud Bashiri | Portfolio",
-  description: "Software Engineer • Builder • Writer",
+  title: "Ashkan Bashiri | Portfolio",
+  description: "Software Engineer • Builder • Writer • Founder",
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
           inter.className
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Header />
           <main className="relative w-full max-w-full bg-body z-10 flex flex-col gap-32 px-6 pt-20 pb-20 md:px-16 lg:px-24 min-h-screen">
             {children}

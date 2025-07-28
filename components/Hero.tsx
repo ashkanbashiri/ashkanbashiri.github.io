@@ -10,7 +10,7 @@ export default function Hero() {
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
       >
         <img
           src="/logo.jpeg"
@@ -28,8 +28,25 @@ export default function Hero() {
       >
         Ashkan Bashiri
       </motion.h1>
+      <motion.h2
+        className="text-xl text-muted-foreground"
+        initial={{ y: -10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.4 }}
+      >
+        Co-Founder & CTO @{" "}
+        <a
+          href="https://xnovative.com"
+          className="underline hover:text-primary"
+        >
+          Xnovative
+        </a>
+        ,<br />
+        Software Engineer @ UCLA Health
+      </motion.h2>
       <motion.p
-        className="text-lg text-muted-foreground max-w-xl"
+        className="text-lg text-muted-foreground max-w-xl rounded-xl bg-gradient-to-l tracking-wide font-bold
+         from-purple-50/50 to-pink-50/50 dark:from-purple-500/50 dark:to-pink-500/50 p-4 md:p-6 shadow-lg"
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.5 }}

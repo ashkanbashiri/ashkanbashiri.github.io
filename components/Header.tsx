@@ -35,7 +35,7 @@ export default function Header() {
       <div className="max-w-6xl mx-auto flex items-center justify-between py-4 px-6 md:px-0">
         <Link href="/" className="flex items-center space-x-3">
           <img
-            src="/logo.jpeg"
+            src="/logo.webp"
             alt="Logo"
             width={40}
             height={40}

@@ -10,7 +10,7 @@ interface Posts {
 }
 const POSTS: Posts = {
   "academic-software": {
-    title: "UniversityCube",
+    title: "AcadoMeet",
     content: universitycubeContent,
   },
   "trading-strategy": {

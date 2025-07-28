@@ -47,44 +47,41 @@ function cn(...inputs) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["twMerge"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"])(inputs));
 }
 const universitycubeContent = `
-# Introducing UniversityCube: Your All-in-One Platform for Academic Success
+# Introducing AcadoMeet: Your All-in-One Platform for Academic Success
 
-## What is UniversityCube?
-UniversityCube is a comprehensive platform designed to enhance the university experience for students, faculty, and administrators. Our mission is to *connect, collaborate, and create*, building the future of academia by providing tools and resources to streamline academic tasks, foster community, and boost research visibility. Whether you're a student seeking opportunities, a researcher sharing knowledge, or an administrator managing academic workflows, UniversityCube is here to empower you.[](https://www.universitycube.net/)[](https://www.reddit.com/r/University/comments/1d850pv/i_would_like_to_introduce_universitycube/)
+## What is AcadoMeet?
+AcadoMeet is a comprehensive platform designed to enhance the university experience for students, faculty, and administrators. Our mission is to *connect, collaborate, and create*, building the future of academia by providing tools and resources to streamline academic tasks, foster community, and boost research visibility. Whether you're a student seeking opportunities, a researcher sharing knowledge, or an administrator managing academic workflows, AcadoMeet is here to empower you.[](https://www.acadomeet.com/)[](https://www.reddit.com/r/University/comments/1d850pv/i_would_like_to_introduce_universitycube/)
 
-## Why UniversityCube?
-Navigating the academic world can be complex, but UniversityCube simplifies it with a suite of innovative features:
+## Why AcadoMeet?
+Navigating the academic world can be complex, but AcadoMeet simplifies it with a suite of innovative features:
 
 ### Connect with the Academic Community
 - **Build Your Network**: Explore an extensive faculty network and connect with peers, mentors, and collaborators across institutions.
-- **Engage in Discussions**: Join conversations on academic topics, share insights, and learn from the global academic community.[](https://www.universitycube.net/)
+- **Engage in Discussions**: Join conversations on academic topics, share insights, and learn from the global academic community.[](https://www.acadomeet.com/)
 
 ### Collaborate Seamlessly
 - **Team Workspaces**: Create teams, assign tasks, and share resources in secure, collaborative spaces.
-- **Research Sharing**: Share and discover short-format notes, publications, and datasets to spark new ideas and partnerships.[](https://www.universitycube.net/)
+- **Research Sharing**: Share and discover short-format notes, publications, and datasets to spark new ideas and partnerships.[](https://www.acadomeet.com/)
 
 ### Create with Ease
 - **Content Creation Tools**: Write and edit articles, posts, or research papers with AI-powered suggestions for grammar, style, and tone.
-- **Visual Content**: Generate stunning visuals for your work using UniversityCube’s AI image generator, perfect for presentations or publications.[](https://www.universitycube.net/)[](https://www.researchgate.net/post/How_to_Promote_Your_Paper_to_Gain_More_Citations_and_Visibility)
+- **Visual Content**: Generate stunning visuals for your work using AcadoMeet’s AI image generator, perfect for presentations or publications.[](https://www.acadomeet.com/)[](https://www.researchgate.net/post/How_to_Promote_Your_Paper_to_Gain_More_Citations_and_Visibility)
 
 ### Discover Opportunities
 - **Job Listings**: Find and post academic job openings, from research positions to faculty roles.
-- **University Comparisons**: Compare colleges by affordability, academic quality, or specialization, with detailed profiles on programs and faculty.[](https://www.universitycube.net/)
+- **University Comparisons**: Compare colleges by affordability, academic quality, or specialization, with detailed profiles on programs and faculty.[](https://www.acadomeet.com/)
 
 ## How to Get Started
-1. **Sign Up**: Create a free account on [UniversityCube](https://www.universitycube.net).
+1. **Sign Up**: Create a free account on [AcadoMeet](https://www.acadomeet.com).
 2. **Explore Features**: Dive into tools for networking, collaboration, and content creation.
-3. **Join the Community**: Post your research, share notes, or engage in discussions to make the most of UniversityCube.
+3. **Join the Community**: Post your research, share notes, or engage in discussions to make the most of AcadoMeet.
 
 ## Why It Matters
-UniversityCube isn’t just a platform—it’s a movement to make academia more connected and accessible. By leveraging tools like AI-powered editing and visual generation, we empower users to share knowledge effectively and increase the visibility of their work. Whether you’re a student planning your academic journey or a researcher aiming to boost citations, UniversityCube is your partner in success.[](https://www.researchgate.net/post/How_to_Promote_Your_Paper_to_Gain_More_Citations_and_Visibility)
+AcadoMeet isn’t just a platform—it’s a movement to make academia more connected and accessible. By leveraging tools like AI-powered editing and visual generation, we empower users to share knowledge effectively and increase the visibility of their work. Whether you’re a student planning your academic journey or a researcher aiming to boost citations, AcadoMeet is your partner in success.[](https://www.researchgate.net/post/How_to_Promote_Your_Paper_to_Gain_More_Citations_and_Visibility)
 
 ## Join Us Today
-Ready to transform your academic experience? Visit [UniversityCube](https://www.universitycube.net) to connect with a global academic community, collaborate on groundbreaking projects, and create content that stands out. Let’s build the future of academia together!
-
----
-
-*Have questions or ideas? Share them in the comments below or join the discussion on UniversityCube’s forums!*`;
+Ready to transform your academic experience? Visit [AcadoMeet](https://www.acadomeet.com) to connect with a global academic community, collaborate on groundbreaking projects, and create content that stands out. Let’s build the future of academia together!
+`;
 }}),
 "[project]/components/ThemeProvider.tsx (client reference/proxy) <module evaluation>": ((__turbopack_context__) => {
 "use strict";
@@ -178,7 +175,7 @@ function Footer() {
         children: [
             "© ",
             new Date().getFullYear(),
-            " Masoud Bashiri. All rights reserved."
+            " Ashkan Bashiri."
         ]
     }, void 0, true, {
         fileName: "[project]/components/Footer.tsx",
@@ -210,8 +207,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Footer$2e$tsx_
 ;
 ;
 const metadata = {
-    title: "Masoud Bashiri | Portfolio",
-    description: "Software Engineer • Builder • Writer"
+    title: "Ashkan Bashiri | Portfolio",
+    description: "Software Engineer • Builder • Writer • Founder"
 };
 function RootLayout({ children }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("html", {
@@ -222,7 +219,7 @@ function RootLayout({ children }) {
             className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["cn"])("bg-background text-foreground antialiased font-inter", __TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$inter_59dee874$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].className),
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ThemeProvider$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                 attribute: "class",
-                defaultTheme: "system",
+                defaultTheme: "dark",
                 enableSystem: true,
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Header$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {

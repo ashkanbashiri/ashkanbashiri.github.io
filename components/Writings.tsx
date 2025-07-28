@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 
 const POSTS = [
   {
-    title: "Introducing UniversityCube: Academia's New Networking Platform",
-    summary: "Crafting UniversityCube for scholars",
+    title: "Introducing AcadoMeet: Academia's New Networking Platform",
+    summary: "Crafting AcadoMeet for scholars",
     link: "/writing/academic-software",
   },
   //   {
